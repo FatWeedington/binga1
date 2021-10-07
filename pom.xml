@@ -9,7 +9,7 @@
 	<properties>
 		<java.version>17</java.version>
 		<javafx.version>17.0.0.1</javafx.version>
-		<appModule>btx.prog.one.sample</appModule>
+		<appModule>btx.prog.one.exes</appModule>
 		<mainClass>btx.prog.one.sample.App</mainClass>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
