@@ -14,7 +14,7 @@ public class RationalNumber {
         long gcd = gcd(numerator,denominator);
         this.numerator = numerator/gcd;
         if (denominator == 0) {
-            throw new ArithmeticException();
+                throw new ArithmeticException();
         }
         else this.denominator = denominator/gcd;
     }

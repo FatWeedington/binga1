@@ -7,7 +7,11 @@ public class TestExample {
         RationalNumber b = new RationalNumber(2,-4);
         RationalNumber x = new RationalNumber(1, 10);
         RationalNumber y = new RationalNumber(2, 3);
-        // RationalNumber z = new RationalNumber(2, 0); //throws ArithmeticException
+        try {
+            RationalNumber z = new RationalNumber(2, 0);
+        } catch (ArithmeticException ex) {
+            System.out.println("failed to create reference z, denominator can't be 0");
+        } //throws ArithmeticException
         System.out.println(x.add(x).add(x).add(x).add(x).add(x).add(x).add(x)); // prints 4/5
         System.out.println(y.multiply(x)); // prints 1/15
         System.out.println(x.multiply(y)); // prints 1/15
