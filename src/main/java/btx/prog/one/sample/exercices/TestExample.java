@@ -30,7 +30,7 @@ public class TestExample {
         try {
             System.out.println(a.divide(RationalNumber.ZERO));
         } catch (ArithmeticException ex){
-            System.out.println("failed to divide Numbers, divide by ZERO is not defined");
+            System.out.println("failed to divide, divide by ZERO is not defined");
         } //catches ArithmeticException
     }
 }
