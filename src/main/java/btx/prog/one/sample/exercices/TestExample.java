@@ -10,13 +10,5 @@ public class TestExample {
         System.out.println(x.multiply(y)); // prints 1/15
         System.out.println(x.multiply(y).add(x).multiply(y)); // prints 1/9
         System.out.println(x.multiply(x).multiply(x).multiply(x).multiply(x).multiply(x).multiply(x).multiply(x).multiply(x).multiply(x).multiply(x)); // prints 1/100000000000
-        RationalNumber z = new RationalNumber(-2, -1);
-        RationalNumber a = new RationalNumber(-4, 6);
-        RationalNumber b = new RationalNumber(3, -4);
-        System.out.println(z.multiply(z));
-        System.out.println(z);
-        System.out.println(a);
-        System.out.println(b);
-        System.out.println(a.multiply(z));
     }
 }

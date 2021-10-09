@@ -51,20 +51,6 @@ public class RationalNumber {
         if (this.denominator == 1) {
             return this.numerator+"";
         }
-        else if (this.denominator == -1) {
-            return "-"+this.numerator* -1+"";
-        }
-        else if (this.denominator < 0) {
-            return "-"+this.numerator  + "/" + this.denominator* -1;
-        }
-        else if (this.numerator < 0) {
-            return "-"+this.numerator* -1 + "/" + this.denominator;
-        }
-
-        else if (this.numerator < 0 && this.denominator <0) {
-            return "-"+this.numerator* -1 + "/" + this.denominator* -1;
-        }
-
-        else return this.numerator + "/" + this.denominator;
+        return this.numerator + "/" + this.denominator;
     }
 }
