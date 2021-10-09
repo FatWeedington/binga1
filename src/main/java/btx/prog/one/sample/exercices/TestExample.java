@@ -32,5 +32,6 @@ public class TestExample {
         } catch (ArithmeticException ex){
             System.out.println("failed to divide, divide by ZERO is not defined");
         } //catches ArithmeticException
+        System.out.println(RationalNumber.ZERO.divide(RationalNumber.ONE));
     }
 }
