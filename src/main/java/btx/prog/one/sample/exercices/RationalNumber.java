@@ -47,10 +47,15 @@ public class RationalNumber {
     }
 
     public RationalNumber divide(RationalNumber other) {
-        long numerator = this.numerator*other.denominator;
-        long denominator = this.denominator*other.numerator;
-        RationalNumber res = new RationalNumber(numerator,denominator);
-        return res;
+        if (other.numerator == 0){
+            throw new ArithmeticException();
+        }
+       else {
+            long numerator = this.numerator * other.denominator;
+            long denominator = this.denominator * other.numerator;
+            RationalNumber res = new RationalNumber(numerator, denominator);
+            return res;
+        }
     }
 
     private static long gcd(long n1 ,long n2) {
