@@ -9,6 +9,8 @@ public class TestExample {
         RationalNumber b = new RationalNumber(2,-4);
         RationalNumber x = new RationalNumber(1, 10);
         RationalNumber y = new RationalNumber(2, 3);
+        RationalNumber p = new RationalNumber(4,-1);
+
         try {
             RationalNumber z = new RationalNumber(2, 0);
         } catch (ArithmeticException ex) {
@@ -21,7 +23,7 @@ public class TestExample {
         System.out.println(b); // prints -1/2
         System.out.println(x.multiply(y).add(x).multiply(y)); // prints 1/9
         System.out.println(x.multiply(x).multiply(x).multiply(x).multiply(x).multiply(x).multiply(x).multiply(x).multiply(x).multiply(x).multiply(x)); // prints 1/100000000000
-        System.out.println(x.divide(y)); // prints 1/9
+        System.out.println(x.divide(y)); // prints 3/20
         System.out.println(x.subtract(x)); // prints 0
         System.out.println(x.subtract(y)); // prints -17/30
         System.out.println(a.subtract(b)); // prints 1/4
@@ -33,5 +35,7 @@ public class TestExample {
             System.out.println("failed to divide, divide by ZERO is not defined");
         } //catches ArithmeticException
         System.out.println(RationalNumber.ZERO.divide(RationalNumber.ONE));
+        System.out.println(p);
+
     }
 }
