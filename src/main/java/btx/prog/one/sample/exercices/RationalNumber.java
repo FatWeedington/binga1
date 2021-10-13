@@ -58,7 +58,7 @@ public class RationalNumber {
         }
     }
 
-    private static long gcd(long n1 ,long n2) {
+    private static long gcd(long n1 ,long  n2) {
         if ( n2 == 0) {
             return n1 ;
         }
@@ -73,17 +73,18 @@ public class RationalNumber {
         else if (this.denominator == -1) {
             return "-"+this.numerator* -1+"";
         }
-        else if (this.denominator < 0) {
+        else if (this.numerator == 0) {
+            return "0";
+        }
+        else if (this.denominator < 0 && this.numerator > 0) {
             return "-"+this.numerator  + "/" + this.denominator* -1;
         }
-        else if (this.numerator < 0) {
+        else if (this.numerator < 0 && this.denominator > 0) {
             return "-"+this.numerator* -1 + "/" + this.denominator;
         }
-
         else if (this.numerator < 0 && this.denominator <0) {
             return "-"+this.numerator* -1 + "/" + this.denominator* -1;
         }
-
         else return this.numerator + "/" + this.denominator;
     }
     }
