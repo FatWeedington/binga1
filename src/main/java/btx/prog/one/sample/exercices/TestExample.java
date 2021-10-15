@@ -45,5 +45,13 @@ public class TestExample {
             System.out.println("failed to divide, divide by ZERO is not defined");
         } //catches ArithmeticException
 
+        System.out.println(a.abs());
+        System.out.println(a.oneOver());
+        System.out.println(x.power(2));
+        System.out.println(x.power(-2));
+        System.out.println("");
+        System.out.println(p.toInt());
+        System.out.println(p.toLong());
+        System.out.println(p.toDouble());
     }
 }
