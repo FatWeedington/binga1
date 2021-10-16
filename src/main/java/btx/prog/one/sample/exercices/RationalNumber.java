@@ -1,6 +1,5 @@
 package btx.prog.one.sample.exercices;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -38,6 +37,12 @@ public class RationalNumber implements Comparable<RationalNumber> {
         return new RationalNumber(numerator,denominator);
     }
 
+    public RationalNumber multiply(RationalNumber other) {
+        long numerator = this.numerator*other.numerator;
+        long denominator = this.denominator*other.denominator;
+        return new RationalNumber(numerator,denominator);
+    }
+
     public RationalNumber signum(){
         if (this.numerator >1){
             return NEGATIVEONE;}
@@ -57,12 +62,6 @@ public class RationalNumber implements Comparable<RationalNumber> {
 
     public RationalNumber negate(){
         return this.multiply(NEGATIVEONE);
-    }
-
-    public RationalNumber multiply(RationalNumber other) {
-        long numerator = this.numerator*other.numerator;
-        long denominator = this.denominator*other.denominator;
-        return new RationalNumber(numerator,denominator);
     }
 
     public RationalNumber subtract(RationalNumber other) {
