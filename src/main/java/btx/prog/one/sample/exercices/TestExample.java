@@ -1,6 +1,9 @@
 package btx.prog.one.sample.exercices;
 
 import java.nio.file.FileSystemNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class TestExample {
     public static void main(String[] args) {
@@ -50,8 +53,35 @@ public class TestExample {
         System.out.println(x.power(2));
         System.out.println(x.power(-2));
         System.out.println("");
-        System.out.println(p.toInt());
-        System.out.println(p.toLong());
-        System.out.println(p.toDouble());
+        System.out.println(y.toInt());
+        System.out.println(y.toLong());
+        System.out.println(y.toDouble());
+        System.out.println("");
+
+        RationalNumber [] numbers = {
+                new RationalNumber (1 ,3) ,
+                new RationalNumber (2 ,3) ,
+                new RationalNumber (1 ,4) ,
+                new RationalNumber (3 ,5)
+        };
+
+        Arrays.sort(numbers);
+        System.out.println(Arrays.toString(numbers));
+        System.out.println("");
+        ArrayList <RationalNumber> number = new ArrayList<RationalNumber>();
+        number.add(new RationalNumber(1,2));
+        number.add(new RationalNumber(3,5));
+        number.add(new RationalNumber(-4,6));
+        number.add(new RationalNumber(9,1));
+        number.add(new RationalNumber(19,3));
+        number.add(new RationalNumber(1,2));
+
+        System.out.println(number);
+
+        System.out.println(RationalNumber.sum(number));
+        System.out.println(RationalNumber.average(number));
+        System.out.println(RationalNumber.max(number));
+        System.out.println(RationalNumber.min(number));
     }
+
 }

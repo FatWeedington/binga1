@@ -1,5 +1,9 @@
 package btx.prog.one.sample.exercices;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 public class RationalNumber implements Comparable<RationalNumber> {
 
     private long numerator;
@@ -23,23 +27,15 @@ public class RationalNumber implements Comparable<RationalNumber> {
             this.denominator = -this.denominator;
             this.numerator = -this.numerator;
         }
-        if (this.numerator < 0 && this.denominator < 0){
-            this.denominator = -this.denominator;
-            this.numerator = -this.numerator;
-        }
     }
-
     public RationalNumber(long  value) {
         this.numerator = value;
         this.denominator = 1;
-
     }
-
     public RationalNumber add(RationalNumber other) {
         long numerator = (other.denominator * this.numerator)+(this.denominator * other.numerator);
         long denominator = this.denominator*other.denominator;
-        RationalNumber res = new RationalNumber(numerator,denominator);
-        return res;
+        return new RationalNumber(numerator,denominator);
     }
 
     public RationalNumber signum(){
@@ -56,7 +52,6 @@ public class RationalNumber implements Comparable<RationalNumber> {
         if (res.numerator < 0){
             res.numerator = -res.numerator;
         }
-
         return res;
     }
 
@@ -67,8 +62,7 @@ public class RationalNumber implements Comparable<RationalNumber> {
     public RationalNumber multiply(RationalNumber other) {
         long numerator = this.numerator*other.numerator;
         long denominator = this.denominator*other.denominator;
-        RationalNumber res = new RationalNumber(numerator,denominator);
-        return res;
+        return new RationalNumber(numerator,denominator);
     }
 
     public RationalNumber subtract(RationalNumber other) {
@@ -76,20 +70,15 @@ public class RationalNumber implements Comparable<RationalNumber> {
     }
 
     public RationalNumber oneOver(){
-        long numerator;
-        long denominator;
-        denominator=this.numerator;
-        numerator = this.denominator;
-        RationalNumber res = new RationalNumber(numerator,denominator);
-        return res;
-    }
-    public RationalNumber divide(RationalNumber other) {
-        if (other.numerator == 0){
+        if (this.numerator == 0){
             throw new ArithmeticException();
         }
-        else {
+        long denominator=this.numerator;
+        long numerator = this.denominator;
+        return new RationalNumber(numerator,denominator);
+    }
+    public RationalNumber divide(RationalNumber other) {
             return this.multiply(other.oneOver());
-        }
     }
 
     public RationalNumber power(double exponent){
@@ -100,13 +89,37 @@ public class RationalNumber implements Comparable<RationalNumber> {
     }
 
     public int toInt(){
-        return (int)this.numerator/(int)this.denominator;
+        return (int) (this.numerator/this.denominator);
     }
     public long toLong(){
         return this.numerator/this.denominator;
     }
     public double toDouble(){
-        return (double) this.numerator/(double) this.denominator;
+        return (double) this.numerator/this.denominator;
+    }
+
+    public static RationalNumber sum(List<RationalNumber> numbers){
+        RationalNumber sum = RationalNumber.ZERO;
+        for (RationalNumber number : numbers) {
+            sum = sum.add(number);
+        }
+        return sum;
+    }
+
+    public static RationalNumber average(List<RationalNumber> numbers){
+        RationalNumber sum = RationalNumber.ZERO;
+        for (RationalNumber number : numbers) {
+            sum = sum.add(number);
+        }
+        return sum.divide(new RationalNumber(numbers.size(),1));
+    }
+
+    public static RationalNumber max(List<RationalNumber> numbers) {
+        return Collections.max(numbers);
+    }
+
+    public static RationalNumber min(List<RationalNumber> numbers) {
+        return Collections.min(numbers);
     }
 
     private static long gcd(long n1 ,long  n2) {
@@ -129,7 +142,7 @@ public class RationalNumber implements Comparable<RationalNumber> {
 
     @Override
     public int compareTo(RationalNumber o) {
-        return 0;
+    return Double.compare(this.toDouble(),o.toDouble());
     }
 }
 
