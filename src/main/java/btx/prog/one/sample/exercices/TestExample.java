@@ -73,10 +73,10 @@ public class TestExample {
 
         ArrayList <RationalNumber> number = new ArrayList<>();
         number.add(new RationalNumber(1,2));
-        number.add(new RationalNumber(3,5));
+        number.add(new RationalNumber(3,-5));
         number.add(new RationalNumber(-4,6));
         number.add(new RationalNumber(9,1));
-        number.add(new RationalNumber(19,3));
+        number.add(new RationalNumber(-19,3));
         number.add(new RationalNumber(1,2));
 
         System.out.println(number);
