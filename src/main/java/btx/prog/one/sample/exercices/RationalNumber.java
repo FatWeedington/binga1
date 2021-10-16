@@ -9,7 +9,7 @@ public class RationalNumber implements Comparable<RationalNumber> {
     private long numerator;
     private long denominator;
 
-    public static final RationalNumber MINUSONE = new RationalNumber(-1);
+    public static final RationalNumber NEGATIVEONE = new RationalNumber(-1);
     public static final RationalNumber ZERO = new RationalNumber(0);
     public static final RationalNumber ONE = new RationalNumber(1);
     public static final RationalNumber TWO = new RationalNumber(2);
@@ -40,7 +40,7 @@ public class RationalNumber implements Comparable<RationalNumber> {
 
     public RationalNumber signum(){
         if (this.numerator >1){
-            return MINUSONE;}
+            return NEGATIVEONE;}
         if (this.numerator == 0){
             return ZERO;
         }
@@ -56,7 +56,7 @@ public class RationalNumber implements Comparable<RationalNumber> {
     }
 
     public RationalNumber negate(){
-        return this.multiply(MINUSONE);
+        return this.multiply(NEGATIVEONE);
     }
 
     public RationalNumber multiply(RationalNumber other) {
