@@ -27,7 +27,7 @@ public class RationalNumber implements Comparable<RationalNumber> {
             this.numerator = -this.numerator;
         }
     }
-    public RationalNumber(long  value) {
+    public RationalNumber(long value) {
         this.numerator = value;
         this.denominator = 1;
     }
@@ -43,21 +43,17 @@ public class RationalNumber implements Comparable<RationalNumber> {
         return new RationalNumber(numerator,denominator);
     }
 
-    public RationalNumber signum(){
-        if (this.numerator >1){
-            return NEGATIVEONE;}
-        if (this.numerator == 0){
-            return ZERO;
-        }
-        else {return ONE;}
+    public int signum(){
+        if (this.numerator < 0){return -1;}
+        if (this.numerator == 0){return 0;}
+        return 1;
     }
 
     public RationalNumber abs(){
-        RationalNumber res = new RationalNumber(this.numerator,this.denominator);
-        if (res.numerator < 0){
-            res.numerator = -res.numerator;
+        if (this.numerator < 0){
+        return this.multiply(NEGATIVEONE);
         }
-        return res;
+        return this;
     }
 
     public RationalNumber negate(){
@@ -80,22 +76,15 @@ public class RationalNumber implements Comparable<RationalNumber> {
             return this.multiply(other.oneOver());
     }
 
-    public RationalNumber power(double exponent){
+    public RationalNumber power(long exponent){
        if (exponent >= 0){
            return new RationalNumber((long)Math.pow(this.numerator,exponent),(long)Math.pow(this.denominator,exponent));
         }
        return this.oneOver().power(-exponent);
     }
-
-    public int toInt(){
-        return (int) (this.numerator/this.denominator);
-    }
-    public long toLong(){
-        return this.numerator/this.denominator;
-    }
-    public double toDouble(){
-        return (double) this.numerator/this.denominator;
-    }
+    public int toInt(){return (int) (this.numerator/this.denominator);}
+    public long toLong(){return this.numerator/this.denominator;}
+    public double toDouble(){return (double) this.numerator/this.denominator;}
 
     public static RationalNumber sum(List<RationalNumber> numbers){
         RationalNumber sum = RationalNumber.ZERO;
@@ -106,11 +95,7 @@ public class RationalNumber implements Comparable<RationalNumber> {
     }
 
     public static RationalNumber average(List<RationalNumber> numbers){
-        RationalNumber sum = RationalNumber.ZERO;
-        for (RationalNumber number : numbers) {
-            sum = sum.add(number);
-        }
-        return sum.divide(new RationalNumber(numbers.size(),1));
+      return RationalNumber.sum(numbers).divide(new RationalNumber(numbers.size(),1));
     }
 
     public static RationalNumber max(List<RationalNumber> numbers) {

@@ -52,6 +52,7 @@ public class TestExample {
         System.out.println(a.oneOver());
         System.out.println(x.power(2));
         System.out.println(x.power(-2));
+        System.out.println(x.signum());
         System.out.println("");
         System.out.println(y.toInt());
         System.out.println(y.toLong());
@@ -65,10 +66,12 @@ public class TestExample {
                 new RationalNumber (3 ,5)
         };
 
+        System.out.println(Arrays.toString(numbers));
         Arrays.sort(numbers);
         System.out.println(Arrays.toString(numbers));
         System.out.println("");
-        ArrayList <RationalNumber> number = new ArrayList<RationalNumber>();
+
+        ArrayList <RationalNumber> number = new ArrayList<>();
         number.add(new RationalNumber(1,2));
         number.add(new RationalNumber(3,5));
         number.add(new RationalNumber(-4,6));
