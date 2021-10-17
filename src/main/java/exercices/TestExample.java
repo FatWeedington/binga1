@@ -1,9 +1,7 @@
-package btx.prog.one.sample.exercices;
+package exercices;
 
-import java.nio.file.FileSystemNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class TestExample {
     public static void main(String[] args) {
@@ -28,18 +26,21 @@ public class TestExample {
         System.out.println(p); // prints -4
         System.out.println(q); // prints 0
         System.out.println("");
+
         System.out.println(x.add(x).add(x).add(x).add(x).add(x).add(x).add(x)); // prints 4/5
         System.out.println(y.multiply(x)); // prints 1/15
         System.out.println(x.multiply(y)); // prints 1/15
         System.out.println(x.multiply(y).add(x).multiply(y)); // prints 1/9
         System.out.println(x.multiply(x).multiply(x).multiply(x).multiply(x).multiply(x).multiply(x).multiply(x).multiply(x).multiply(x).multiply(x)); // prints 1/100000000000
         System.out.println("");
+
         System.out.println(x.divide(y)); // prints 3/20
         System.out.println(x.subtract(x)); // prints 0
         System.out.println(x.subtract(y)); // prints -17/30
         System.out.println(a.subtract(b)); // prints 1/4
         System.out.println(a.divide(b)); // prints 1/2
         System.out.println("");
+
         System.out.println(a.multiply(RationalNumber.ZERO)); // prints 0
         System.out.println(RationalNumber.ZERO.divide(RationalNumber.ONE));
         try {
@@ -70,7 +71,6 @@ public class TestExample {
         Arrays.sort(numbers);
         System.out.println(Arrays.toString(numbers));
         System.out.println("");
-
         ArrayList <RationalNumber> number = new ArrayList<>();
         number.add(new RationalNumber(1,2));
         number.add(new RationalNumber(3,-5));
@@ -80,11 +80,9 @@ public class TestExample {
         number.add(new RationalNumber(1,2));
 
         System.out.println(number);
-
         System.out.println(RationalNumber.sum(number));
         System.out.println(RationalNumber.average(number));
         System.out.println(RationalNumber.max(number));
         System.out.println(RationalNumber.min(number));
     }
-
 }

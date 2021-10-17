@@ -1,4 +1,4 @@
-package btx.prog.one.sample.exercices;
+package exercices;
 
 import java.util.Collections;
 import java.util.List;
@@ -32,15 +32,11 @@ public class RationalNumber implements Comparable<RationalNumber> {
         this.denominator = 1;
     }
     public RationalNumber add(RationalNumber other) {
-        long numerator = (other.denominator * this.numerator)+(this.denominator * other.numerator);
-        long denominator = this.denominator*other.denominator;
-        return new RationalNumber(numerator,denominator);
+        return new RationalNumber((other.denominator * this.numerator)+(this.denominator * other.numerator),this.denominator*other.denominator);
     }
 
     public RationalNumber multiply(RationalNumber other) {
-        long numerator = this.numerator*other.numerator;
-        long denominator = this.denominator*other.denominator;
-        return new RationalNumber(numerator,denominator);
+        return new RationalNumber(this.numerator*other.numerator,this.denominator*other.denominator);
     }
 
     public int signum(){
