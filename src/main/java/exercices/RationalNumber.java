@@ -91,7 +91,7 @@ public class RationalNumber implements Comparable<RationalNumber> {
     }
 
     public static RationalNumber average(List<RationalNumber> numbers){
-      return RationalNumber.sum(numbers).divide(new RationalNumber(numbers.size(),1));
+      return RationalNumber.sum(numbers).divide(new RationalNumber(numbers.size()));
     }
 
     public static RationalNumber max(List<RationalNumber> numbers) {
