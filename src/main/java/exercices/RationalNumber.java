@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class RationalNumber implements Comparable<RationalNumber> {
-
     private long numerator;
     private long denominator;
 
