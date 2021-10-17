@@ -113,10 +113,10 @@ public class RationalNumber implements Comparable<RationalNumber> {
         if (this.denominator == 1) {
             return this.numerator + "";
         }
-        else if (this.numerator == 0) {
+        if (this.numerator == 0) {
             return "0";
         }
-        else return this.numerator + "/" + this.denominator;
+        return this.numerator + "/" + this.denominator;
     }
 
     @Override
