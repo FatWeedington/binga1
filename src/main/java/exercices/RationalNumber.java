@@ -2,6 +2,7 @@ package exercices;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class RationalNumber implements Comparable<RationalNumber> {
     private long numerator;
@@ -77,9 +78,9 @@ public class RationalNumber implements Comparable<RationalNumber> {
         }
        return this.oneOver().power(-exponent);
     }
-    public int toInt(){return (int) (this.numerator/this.denominator);}
+    public int toInt(){return (int) this.toLong();}
     public long toLong(){return this.numerator/this.denominator;}
-    public double toDouble(){return (double) this.numerator/this.denominator;}
+    public double toDouble(){return 1.0* this.numerator/this.denominator;}
 
     public static RationalNumber sum(List<RationalNumber> numbers){
         RationalNumber sum = RationalNumber.ZERO;
@@ -90,6 +91,8 @@ public class RationalNumber implements Comparable<RationalNumber> {
     }
 
     public static RationalNumber average(List<RationalNumber> numbers){
+        if (numbers.size() == 0)
+                return null;
       return RationalNumber.sum(numbers).divide(new RationalNumber(numbers.size()));
     }
 
@@ -102,11 +105,27 @@ public class RationalNumber implements Comparable<RationalNumber> {
     }
 
     private static long gcd(long n1 ,long  n2) {
-        if ( n2 == 0) {
+          if ( n2 == 0) {
             return n1 ;
         }
         return gcd ( n2 , n1 % n2 ) ;
     }
+
+       public static RationalNumber valueof(double value) {
+           for (long i= 1; i < Long.MAX_VALUE;i*=10){
+             if (i*value % 1 == 0)
+                 return new RationalNumber((long)(i*value),i);
+           }
+           return null;
+       }
+
+    public static RationalNumber valueof(String value) {
+        String[] values = value.split("/");
+        long num = Long.valueOf(values[0]);
+        long den = Long.valueOf(values[1]);
+        return new RationalNumber(num,den);
+    }
+
 
     @Override
     public String toString() {
@@ -120,8 +139,23 @@ public class RationalNumber implements Comparable<RationalNumber> {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof RationalNumber)) return false;
+        RationalNumber that = (RationalNumber) o;
+        return numerator == that.numerator && denominator == that.denominator;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(numerator, denominator);
+    }
+
+    @Override
     public int compareTo(RationalNumber o) {
-    return Double.compare(this.toDouble(),o.toDouble());
+    // return Double.compare(this.toDouble(),o.toDouble());
+    return this.subtract(o).signum();
+
     }
 }
 
