@@ -136,8 +136,8 @@ public class RationalNumber implements Comparable<RationalNumber> {
     public static RationalNumber eval(String expression){
         if (expression.contains("+")){
             String[] subExpressions = expression.split("\\+");
-            RationalNumber sum = ZERO;
-            for(int i = 0 ; i < subExpressions.length;i++){
+            RationalNumber sum = eval(subExpressions[0]);
+            for(int i = 1 ; i < subExpressions.length;i++){
                 RationalNumber value =eval(subExpressions[i]);
                 sum = sum.add(value);}
             return sum;
@@ -145,8 +145,8 @@ public class RationalNumber implements Comparable<RationalNumber> {
 
         if (expression.contains("_")){
             String[] subExpressions = expression.split("_");
-            RationalNumber diff = ZERO;
-            for(int i = 0 ; i < subExpressions.length;i++){
+            RationalNumber diff = eval(subExpressions[0]);
+            for(int i = 1 ; i < subExpressions.length;i++){
                 RationalNumber value =eval(subExpressions[i]);
                 diff = diff.subtract(value);}
             return diff;
@@ -154,8 +154,8 @@ public class RationalNumber implements Comparable<RationalNumber> {
 
         if (expression.contains("*")){
             String[] subExpressions = expression.split("\\*");
-            RationalNumber product = ONE;
-            for(int i = 0 ; i < subExpressions.length;i++){
+            RationalNumber product = eval(subExpressions[0]);
+            for(int i = 1 ; i < subExpressions.length;i++){
                 RationalNumber value =eval(subExpressions[i]);
                 product = product.multiply(value);}
             return product;
@@ -163,8 +163,8 @@ public class RationalNumber implements Comparable<RationalNumber> {
 
         if (expression.contains(":")){
             String[] subExpressions = expression.split("\\:");
-            RationalNumber quot = ONE;
-            for(int i = 0 ; i < subExpressions.length;i++){
+            RationalNumber quot = eval(subExpressions[0]);
+            for(int i = 1 ; i < subExpressions.length;i++){
                 RationalNumber value =eval(subExpressions[i]);
                 quot = quot.divide(value);}
             return quot;
@@ -172,8 +172,8 @@ public class RationalNumber implements Comparable<RationalNumber> {
 
         if (expression.contains("^")){
             String[] subExpressions = expression.split("\\^");
-            RationalNumber pot = ONE;
-            for(int i = 0 ; i < subExpressions.length;i++){
+            RationalNumber pot = eval(subExpressions[0]);
+            for(int i = 1 ; i < subExpressions.length;i++){
                 RationalNumber value =eval(subExpressions[i]);
                 pot = pot.power(value.toLong());}
             return pot;
