@@ -86,6 +86,7 @@ public class TestExample {
         System.out.println(RationalNumber.min(number));
 
         System.out.println(RationalNumber.valueof("12/27"));
-        System.out.println(RationalNumber.valueof(3.14165));
+        System.out.println(RationalNumber.valueof(-3.14165));
+        System.out.println(RationalNumber.valueof(-13));
     }
 }

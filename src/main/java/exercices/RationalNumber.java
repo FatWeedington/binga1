@@ -111,20 +111,76 @@ public class RationalNumber implements Comparable<RationalNumber> {
         return gcd ( n2 , n1 % n2 ) ;
     }
 
-       public static RationalNumber valueof(double value) {
-           for (long i= 1; i < Long.MAX_VALUE;i*=10){
-             if (i*value % 1 == 0)
-                 return new RationalNumber((long)(i*value),i);
-           }
+    public static RationalNumber valueof(double value) {
+        for (long i= 1; i < Long.MAX_VALUE;i*=10){
+            if (i*value % 1 == 0)
+                return new RationalNumber((long)(i*value),i);
+        }
            return null;
-       }
+    }
 
-    public static RationalNumber valueof(String value) {
-        String[] values = value.split("/");
+    public static RationalNumber valueof(String valueStr) {
+       valueStr = valueStr.trim();
+       if (valueStr.contains("."))
+           return RationalNumber.valueof(Long.valueOf(valueStr));
+       if (!valueStr.contains("/")){
+            return new RationalNumber(Long.valueOf(valueStr));
+        }
+       
+        String[] values = valueStr.split("/");
         long num = Long.valueOf(values[0]);
         long den = Long.valueOf(values[1]);
         return new RationalNumber(num,den);
     }
+
+    public static RationalNumber eval(String expression){
+        if (expression.contains("+")){
+            String[] subExpressions = expression.split("\\+");
+            RationalNumber sum = ZERO;
+            for(int i = 0 ; i < subExpressions.length;i++){
+                RationalNumber value =eval(subExpressions[i]);
+                sum = sum.add(value);}
+            return sum;
+        }
+
+        if (expression.contains("_")){
+            String[] subExpressions = expression.split("_");
+            RationalNumber diff = ZERO;
+            for(int i = 0 ; i < subExpressions.length;i++){
+                RationalNumber value =eval(subExpressions[i]);
+                diff = diff.subtract(value);}
+            return diff;
+        }
+
+        if (expression.contains("*")){
+            String[] subExpressions = expression.split("\\*");
+            RationalNumber product = ONE;
+            for(int i = 0 ; i < subExpressions.length;i++){
+                RationalNumber value =eval(subExpressions[i]);
+                product = product.multiply(value);}
+            return product;
+        }
+
+        if (expression.contains(":")){
+            String[] subExpressions = expression.split("\\:");
+            RationalNumber quot = ONE;
+            for(int i = 0 ; i < subExpressions.length;i++){
+                RationalNumber value =eval(subExpressions[i]);
+                quot = quot.divide(value);}
+            return quot;
+        }
+
+        if (expression.contains("^")){
+            String[] subExpressions = expression.split("\\^");
+            RationalNumber pot = ONE;
+            for(int i = 0 ; i < subExpressions.length;i++){
+                RationalNumber value =eval(subExpressions[i]);
+                pot = pot.power(value.toLong());}
+            return pot;
+        }
+
+                return RationalNumber.valueof(expression);
+            }
 
 
     @Override
