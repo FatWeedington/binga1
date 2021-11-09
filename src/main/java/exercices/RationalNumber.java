@@ -122,18 +122,17 @@ public class RationalNumber implements Comparable<RationalNumber> {
     public static RationalNumber valueof(String valueStr) {
        valueStr = valueStr.trim();
        if (valueStr.contains("."))
-           return RationalNumber.valueof(Long.valueOf(valueStr));
+           return RationalNumber.valueof(Double.valueOf(valueStr));
        if (!valueStr.contains("/")){
             return new RationalNumber(Long.valueOf(valueStr));
         }
        
         String[] values = valueStr.split("/");
-        long num = Long.valueOf(values[0]);
-        long den = Long.valueOf(values[1]);
-        return new RationalNumber(num,den);
+        return new RationalNumber(Long.valueOf(values[0]),Long.valueOf(values[1]));
     }
 
     public static RationalNumber eval(String expression){
+
         if (expression.contains("+")){
             String[] subExpressions = expression.split("\\+");
             RationalNumber sum = eval(subExpressions[0]);
