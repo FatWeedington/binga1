@@ -1,6 +1,6 @@
-package btx.prog.one.sample;
+package exercises.rationalnumber;
 
-import exercices.RationalNumber;
+import exercices.rationalnumber.RationalNumber;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,48 +11,47 @@ public class TestRationalNumber {
     private RationalNumber b = new RationalNumber(3,2);
     private RationalNumber c = new RationalNumber(-1,2);
     private RationalNumber d = new RationalNumber(1,-3);
+    private RationalNumber e = new RationalNumber(-5,2);
 
     private ArrayList<RationalNumber> numbers = new ArrayList<>();
 
-
-
     @Test
     public void testRationalNumber(){
-        assertEquals(new RationalNumber(2,1),RationalNumber.TWO);
-        assertEquals(new RationalNumber(2),RationalNumber.TWO);
+        assertEquals(RationalNumber.TWO,new RationalNumber(2,1));
+        assertEquals(RationalNumber.TWO,new RationalNumber(2));
         assertEquals(new RationalNumber(2,4),new RationalNumber(4,8));
         assertThrows(ArithmeticException.class,()->new RationalNumber(1,0));
     }
 
     @Test
     public void testAdd(){
-            assertEquals(a.add(b),RationalNumber.TWO);
-            assertEquals(a.add(c),RationalNumber.ZERO);
+            assertEquals(RationalNumber.TWO,a.add(b));
+            assertEquals(RationalNumber.ZERO,a.add(c));
     }
 
     @Test
     public void TestMultiply(){
-        assertEquals(a.multiply(b),new RationalNumber(3,4));
-        assertEquals(a.multiply(c), new RationalNumber(-1,4));
+        assertEquals(new RationalNumber(3,4),a.multiply(b));
+        assertEquals( new RationalNumber(-1,4),a.multiply(c));
 
     }
 
     @Test
     public void TestSignum(){
-        assertEquals(a.signum(),1);
-        assertEquals(c.signum(),-1);
+        assertEquals(1,a.signum());
+        assertEquals(-1,c.signum());
     }
 
     @Test
     public void TestAbs(){
-        assertEquals(a.abs(),new RationalNumber(1,2));
-        assertEquals(c.abs(),new RationalNumber(1,2));
+        assertEquals(new RationalNumber(1,2),a.abs());
+        assertEquals(new RationalNumber(1,2),c.abs());
     }
 
     @Test
     public void TestNegate(){
-        assertEquals(a.negate(),new RationalNumber(-1,2));
-        assertEquals(c.negate(),new RationalNumber(1,2));
+        assertEquals(new RationalNumber(-1,2),a.negate());
+        assertEquals(new RationalNumber(1,2),c.negate());
     }
 
     @Test
@@ -63,36 +62,36 @@ public class TestRationalNumber {
 
     @Test
     public void TestOneover(){
-        assertEquals(a.oneOver(),RationalNumber.TWO);
-        assertEquals(d.oneOver(),new RationalNumber(-3));
+        assertEquals(RationalNumber.TWO,a.oneOver());
+        assertEquals(new RationalNumber(-3),d.oneOver());
         assertThrows(ArithmeticException.class, RationalNumber.ZERO::oneOver);
     }
 
     @Test
     public void TestDivide(){
-        assertEquals(a.divide(b),new RationalNumber(1,3));
-        assertEquals(a.divide(c),RationalNumber.NEGATIVEONE);
+        assertEquals(new RationalNumber(1,3),a.divide(b));
+        assertEquals(RationalNumber.NEGATIVEONE,a.divide(c));
         assertThrows(ArithmeticException.class,()->a.divide(RationalNumber.ZERO));
     }
 
     @Test
     public void TestPower(){
-        assertEquals(a.power(2),new RationalNumber(1,4));
-        assertEquals(c.power(2),new RationalNumber(1,4));
-        assertEquals(c.power(3),new RationalNumber(-1,8));
+        assertEquals(new RationalNumber(1,4),a.power(2));
+        assertEquals(new RationalNumber(1,4),c.power(2));
+        assertEquals(new RationalNumber(-1,8),c.power(3));
     }
 
     @Test
     public void TestToInt(){
         assertEquals(2,RationalNumber.TWO.toInt());
-        assertEquals(0,c.toInt());
+        assertEquals(-2,e.toInt());
         assertEquals(0,d.toInt());
     }
 
     @Test
     public void TestToLong(){
         assertEquals(2,RationalNumber.TWO.toLong());
-        assertEquals(0,c.toLong());
+        assertEquals(-2,e.toLong());
         assertEquals(0,d.toLong());
     }
 
@@ -102,7 +101,6 @@ public class TestRationalNumber {
         assertEquals(-0.5,c.toDouble());
         assertEquals(-0.3333333333333333,d.toDouble());
     }
-
 
     @Test
     public void TestSum(){
@@ -160,7 +158,7 @@ public class TestRationalNumber {
     @Test
     public void TestCompareTo(){
         assertEquals(-1, a.compareTo(b));
-        assertEquals(0, a.compareTo(a));
+        assertEquals(0, a.compareTo(new RationalNumber(1,2)));
         assertEquals(1, a.compareTo(c));
     }
 

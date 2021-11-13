@@ -1,4 +1,4 @@
-package exercices;
+package exercices.rationalnumber;
 
 import java.util.Scanner;
 
