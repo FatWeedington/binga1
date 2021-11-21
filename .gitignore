@@ -6,4 +6,5 @@
 .settings/
 bin/
 doc/
+target/
 *.iml
