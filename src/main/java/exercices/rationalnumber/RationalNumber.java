@@ -308,9 +308,9 @@ public class RationalNumber implements Comparable<RationalNumber> {
             return new RationalNumber(Long.parseLong(valueString));
         }
         else{
-            String[] values = valueString.split("\\.");
-            long num = (long) (Double.parseDouble(valueString)*Math.pow(10,values[1].length()));
-            long den = (long) (Math.pow(10,values[1].length()));
+            String values = valueString.split("\\.")[1];
+            long num = (long) (Double.parseDouble(valueString)*Math.pow(10,values.length()));
+            long den = (long) (Math.pow(10,values.length()));
             return new RationalNumber(num,den);
       }
     }
@@ -323,8 +323,9 @@ public class RationalNumber implements Comparable<RationalNumber> {
 
     public static RationalNumber valueof(String valueStr) {
         valueStr = valueStr.trim();
-        if (valueStr.contains("."))
+        if (valueStr.contains(".")) {
             return RationalNumber.valueof(Double.parseDouble(valueStr));
+        }
         else if (!valueStr.contains("/")){
             return new RationalNumber(Long.parseLong(valueStr));
         }
