@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"btx.prog.one.sample","l":"App"},{"p":"exercices.rationalnumber","l":"CalculatorApp"},{"p":"exercices.rationalnumber","l":"RationalNumber"},{"p":"btx.prog.one.sample","l":"SystemInfo"},{"p":"exercices.rationalnumber","l":"TestExample"}];updateSearchResults();
