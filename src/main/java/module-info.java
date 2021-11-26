@@ -4,4 +4,6 @@
 module btx.prog.one.exes {
     requires transitive javafx.controls;
     exports btx.prog.one.sample;
+    exports btx.prog.one.rationalnumber;
 }
+

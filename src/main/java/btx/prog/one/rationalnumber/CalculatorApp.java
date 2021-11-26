@@ -1,4 +1,4 @@
-package exercices.rationalnumber;
+package btx.prog.one.rationalnumber;
 
 import java.util.Scanner;
 

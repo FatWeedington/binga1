@@ -1,6 +1,6 @@
 package exercises.rationalnumber;
 
-import exercices.rationalnumber.RationalNumber;
+import btx.prog.one.rationalnumber.RationalNumber;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;

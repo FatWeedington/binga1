@@ -21,7 +21,7 @@ public class App extends Application {
 	 * @param stage the stage for this simple app
 	 */
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws Exception {
         var systemInfo = new SystemInfo();
         var javaVersion = systemInfo.javaVersion();
         var javafxVersion = systemInfo.javafxVersion();

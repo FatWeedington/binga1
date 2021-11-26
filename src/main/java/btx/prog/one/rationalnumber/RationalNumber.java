@@ -1,4 +1,4 @@
-package exercices.rationalnumber;
+package btx.prog.one.rationalnumber;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -69,11 +69,20 @@ public class RationalNumber implements Comparable<RationalNumber> {
         this.denominator = 1;
     }
 
+    public long getNumerator() {
+        return this.numerator;
+    }
+
+    public long getDenominator() {
+        return this.denominator;
+    }
+
     /**
      * <p>returns a new object from Type RationalNumber representing the mathematical addidtion from own object from Type RationalNumber with another</p>
      * @param other any other Oject from type RationalNumber
      * @return new Oject from type RationalNumber
      */
+
 
     public RationalNumber add(RationalNumber other) {
         return new RationalNumber((other.denominator * this.numerator)+(this.denominator * other.numerator),this.denominator*other.denominator);
