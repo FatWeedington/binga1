@@ -32,15 +32,12 @@ public class CalculatorFxApp extends Application {
         Label equallbl = new Label("=");
         equallbl.setPrefWidth(60);
         equallbl.setAlignment(Pos.CENTER);
-
         StackPane spEq = new StackPane(equallbl);
 
         TextField num3 = createTextField();
         TextField den3 = createTextField();
-
         num3.setEditable(false);
         den3.setEditable(false);
-
         VBox vBoxRight = new VBox(num3,den3);
 
         Label lblError = new Label("Error: tried to Divide by 0");
@@ -83,8 +80,8 @@ public class CalculatorFxApp extends Application {
         Button addBtn = createBtn("+");
         addBtn.setOnAction(ẹ -> {
             try {
-                num3.setText(String.valueOf(setButtonAction(num1.getText(), den1.getText(), num2.getText(), den2.getText(), 0).getNumerator()));
-                den3.setText(String.valueOf(setButtonAction(num1.getText(), den1.getText(), num2.getText(), den2.getText(), 0).getDenominator()));
+                num3.setText(String.valueOf(setButtonAction(num1, den1, num2, den2, 0).getNumerator()));
+                den3.setText(String.valueOf(setButtonAction(num1, den1, num2, den2, 0).getDenominator()));
             }
             catch(ArithmeticException e){
                 lblError.setVisible(true);
@@ -95,8 +92,8 @@ public class CalculatorFxApp extends Application {
         Button subtractBtn = createBtn("-");
         subtractBtn.setOnAction(ẹ -> {
             try {
-                num3.setText(String.valueOf(setButtonAction(num1.getText(), den1.getText(), num2.getText(), den2.getText(), 1).getNumerator()));
-                den3.setText(String.valueOf(setButtonAction(num1.getText(), den1.getText(), num2.getText(), den2.getText(), 1).getDenominator()));
+                num3.setText(String.valueOf(setButtonAction(num1, den1, num2, den2, 1).getNumerator()));
+                den3.setText(String.valueOf(setButtonAction(num1, den1, num2, den2, 1).getDenominator()));
             }
             catch(ArithmeticException e){
                 lblError.setVisible(true);
@@ -107,8 +104,8 @@ public class CalculatorFxApp extends Application {
         Button multiplyBtn = createBtn("*");
         multiplyBtn.setOnAction(ẹ -> {
             try {
-                num3.setText(String.valueOf(setButtonAction(num1.getText(), den1.getText(), num2.getText(), den2.getText(), 2).getNumerator()));
-                den3.setText(String.valueOf(setButtonAction(num1.getText(), den1.getText(), num2.getText(), den2.getText(), 2).getDenominator()));
+                num3.setText(String.valueOf(setButtonAction(num1, den1, num2, den2, 2).getNumerator()));
+                den3.setText(String.valueOf(setButtonAction(num1, den1, num2, den2, 2).getDenominator()));
             }
             catch(ArithmeticException e){
                 lblError.setVisible(true);
@@ -119,8 +116,8 @@ public class CalculatorFxApp extends Application {
         Button divideBtn = createBtn(":");
         divideBtn.setOnAction(ẹ -> {
             try {
-                num3.setText(String.valueOf(setButtonAction(num1.getText(), den1.getText(), num2.getText(), den2.getText(), 3).getNumerator()));
-                den3.setText(String.valueOf(setButtonAction(num1.getText(), den1.getText(), num2.getText(), den2.getText(), 3).getDenominator()));
+                num3.setText(String.valueOf(setButtonAction(num1, den1, num2, den2, 3).getNumerator()));
+                den3.setText(String.valueOf(setButtonAction(num1, den1, num2, den2, 3).getDenominator()));
             }
             catch(ArithmeticException e){
                 lblError.setVisible(true);
@@ -136,7 +133,6 @@ public class CalculatorFxApp extends Application {
 
         VBox vBoxMain = new VBox(hBoxTop,hBoxBottom,hBoxError);
         vBoxMain.setAlignment(Pos.CENTER);
-        
 
         var scene = new Scene(vBoxMain, 300, 150);
         stage.setScene(scene);
@@ -156,9 +152,9 @@ public class CalculatorFxApp extends Application {
         return t;
     }
 
-    private static RationalNumber setButtonAction(String num1,String den1, String num2, String den2, int operator) {
-            RationalNumber r1 = new RationalNumber(Long.valueOf(num1), Long.valueOf(den1));
-            RationalNumber r2 = new RationalNumber(Long.valueOf(num2), Long.valueOf(den2));
+    private static RationalNumber setButtonAction(TextField num1,TextField den1, TextField num2, TextField den2, int operator) {
+            RationalNumber r1 = new RationalNumber(Long.valueOf(num1.getText()), Long.valueOf(den1.getText()));
+            RationalNumber r2 = new RationalNumber(Long.valueOf(num2.getText()), Long.valueOf(den2.getText()));
 
         switch (operator) {
             case 0:
