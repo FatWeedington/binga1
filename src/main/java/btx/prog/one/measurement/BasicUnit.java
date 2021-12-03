@@ -1,14 +1,23 @@
 package btx.prog.one.measurement;
 
+import java.util.Objects;
+
 public class BasicUnit implements Unit{
+
+    public static final BasicUnit METER = new BasicUnit("meter","m", Type.LENGTH);
+    public static final BasicUnit LITER = new BasicUnit("liter","l", Type.VOLUME);
+    public static final BasicUnit PASCAL = new BasicUnit("pascal","Pa", Type.PRESSURE);
+    public static final BasicUnit GRAMM = new BasicUnit("gramm","G", Type.MASS);
+
+
     private String name;
     private String shortName;
-    private Type Type;
+    private Type type;
 
     public BasicUnit(String name, String shortName, Type Type) {
         this.name = name;
         this.shortName = shortName;
-        this.Type = Type;
+        this.type = type;
     }
 
     @Override
@@ -23,15 +32,29 @@ public class BasicUnit implements Unit{
 
     @Override
     public Type getType() {
-        return Type;
+        return type;
     }
 
     @Override
     public boolean isCompatible(Unit other) {
-        if (this.Type.equals(other.getType())) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.type == (other.getType());
+    }
+
+    @Override
+    public String toString() {
+        return this.getName();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof BasicUnit)) return false;
+        BasicUnit basicUnit = (BasicUnit) o;
+        return getName().equals(basicUnit.getName()) && getShortName().equals(basicUnit.getShortName()) && getType() == basicUnit.getType();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getShortName(), getType());
     }
 }
