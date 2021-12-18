@@ -1,5 +1,7 @@
 package measurement;
 
+import btx.prog.one.measurement.converter.ProportionalConverter;
+import btx.prog.one.measurement.quantity.Quantity;
 import btx.prog.one.measurement.unit.BasicUnit;
 import btx.prog.one.measurement.unit.DerivedUnit;
 import btx.prog.one.measurement.unit.Unit;
@@ -14,37 +16,37 @@ public class TestDerivedUnit {
     private DerivedUnit millibar = new DerivedUnit(bar, DerivedUnit.Prefix.MILLI);
 
     @Test
-    public void TestDerivedUnit(){
+    public void testDerivedUnit(){
      assertEquals(millibar,new DerivedUnit(bar, DerivedUnit.Prefix.MILLI));
      assertEquals(DerivedUnit.KILOGRAMM,new DerivedUnit(BasicUnit.GRAMM,DerivedUnit.Prefix.KILO));
     }
 
     @Test
-    public void TestGetName(){
+    public void testGetName(){
         assertEquals("millibar",millibar.getName());
         assertEquals("hektoliter",hectolitre.getName());
     }
 
     @Test
-    public void TestGetShortName(){
+    public void testGetShortName(){
         assertEquals("ml",DerivedUnit.MILLILITER.getShortName());
         assertEquals("mbar",millibar.getShortName());
     }
 
     @Test
-    public void TestGetType(){
+    public void testGetType(){
         assertEquals(Unit.Type.VOLUME,hectolitre.getType());
         assertEquals(Unit.Type.PRESSURE,millibar.getType());
     }
 
     @Test
-    public void TestGetBasicUnit(){
+    public void testGetBasicUnit(){
         assertEquals(BasicUnit.LITER,hectolitre.getBasicUnit());
         assertEquals(bar,millibar.getBasicUnit());
     }
 
     @Test
-    public void TestIsCompatible(){
+    public void testIsCompatible(){
         assertTrue(hectolitre.isCompatible(DerivedUnit.MILLILITER));
         assertFalse(hectolitre.isCompatible(millibar));
     }
@@ -55,8 +57,21 @@ public class TestDerivedUnit {
         assertEquals(hectolitre.getFactor(),new RationalNumber(100,1));
     }
 
-    @Test
-    public void ToString(){
 
+    @Test
+    public void testGetDeriveToBasicUnitConverter() {
+        assertEquals(hectolitre.getDerivedToBasicUnitConverter(), new ProportionalConverter(new DerivedUnit(BasicUnit.LITER, DerivedUnit.Prefix.HEKTO), BasicUnit.LITER, new RationalNumber(100)));
+        assertEquals(new Quantity(new RationalNumber(100),BasicUnit.LITER),hectolitre.getDerivedToBasicUnitConverter().convert(new Quantity(RationalNumber.ONE,hectolitre)));
     }
+
+    @Test
+    public void testGetBasicToDerivedUnitConverter(){
+        assertEquals(new Quantity(new RationalNumber(1),new DerivedUnit(BasicUnit.LITER, DerivedUnit.Prefix.HEKTO)),hectolitre.getBasicUnitToDerivedUnitConverter().convert(new Quantity(new RationalNumber(100),BasicUnit.LITER)));
+    }
+
+    @Test
+    public void testGetDerivedUnitToDerivedUnitConverter(){
+        assertEquals(new Quantity(new RationalNumber(100000),new DerivedUnit(BasicUnit.LITER, DerivedUnit.Prefix.MILLI)),hectolitre.getDerivedcUnitToDerivedUnitConverter(new DerivedUnit(BasicUnit.LITER, DerivedUnit.Prefix.MILLI)).convert(new Quantity(RationalNumber.ONE,hectolitre)));
+    }
+
 }

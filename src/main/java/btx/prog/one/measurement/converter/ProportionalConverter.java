@@ -13,7 +13,7 @@ public class ProportionalConverter extends Converter{
 
     private RationalNumber factor;
 
-    protected ProportionalConverter(Unit sourceUnit, Unit targetUnit, RationalNumber factor) {
+    public ProportionalConverter(Unit sourceUnit, Unit targetUnit, RationalNumber factor) {
         super(sourceUnit, targetUnit);
         this.factor = factor;
     }
@@ -22,4 +22,6 @@ public class ProportionalConverter extends Converter{
     protected RationalNumber convertValue(RationalNumber value) {
         return value.multiply(factor);
     }
+
+
 }

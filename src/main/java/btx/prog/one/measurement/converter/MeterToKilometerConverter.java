@@ -8,7 +8,7 @@ import btx.prog.one.rationalnumber.RationalNumber;
 
 public class MeterToKilometerConverter extends Converter {
 
-    protected MeterToKilometerConverter() {
+    public MeterToKilometerConverter() {
         super(BasicUnit.METER, DerivedUnit.KILOMETER);
     }
 

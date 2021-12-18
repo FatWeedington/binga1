@@ -6,7 +6,7 @@ import btx.prog.one.rationalnumber.RationalNumber;
 
 public class MiletoMeterConverter extends Converter {
 
-    protected MiletoMeterConverter() {
+    public MiletoMeterConverter() {
         super(BasicUnit.MILE, BasicUnit.METER);
     }
 

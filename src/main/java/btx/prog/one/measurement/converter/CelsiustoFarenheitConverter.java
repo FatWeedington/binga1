@@ -6,8 +6,8 @@ import btx.prog.one.rationalnumber.RationalNumber;
 
 public class CelsiustoFarenheitConverter extends Converter {
 
-    protected CelsiustoFarenheitConverter() {
-        super(BasicUnit.FARENHEIT, BasicUnit.CELSIUS);
+    public CelsiustoFarenheitConverter() {
+        super(BasicUnit.CELSIUS,BasicUnit.FARENHEIT);
     }
 
     @Override

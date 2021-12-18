@@ -1,7 +1,10 @@
 package btx.prog.one.measurement.unit;
 
+import btx.prog.one.measurement.converter.Converter;
+import btx.prog.one.measurement.converter.ProportionalConverter;
 import btx.prog.one.rationalnumber.RationalNumber;
 
+import java.util.ConcurrentModificationException;
 import java.util.Objects;
 
 public class DerivedUnit implements Unit{
@@ -42,6 +45,18 @@ public class DerivedUnit implements Unit{
             case NANO -> new RationalNumber(1,100000);
             default -> null;
         };
+    }
+
+    public Converter getDerivedToBasicUnitConverter(){
+        return new ProportionalConverter(this,this.basicUnit,this.getFactor());
+    }
+
+    public Converter getBasicUnitToDerivedUnitConverter(){
+        return new ProportionalConverter(this.basicUnit,this,this.getFactor().oneOver());
+    }
+
+    public Converter getDerivedcUnitToDerivedUnitConverter(DerivedUnit other){
+        return new ProportionalConverter(this,other,this.getFactor().divide(other.getFactor()));
     }
 
     @Override
