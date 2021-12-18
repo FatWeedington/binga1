@@ -1,4 +1,4 @@
-package btx.prog.one.measurement;
+package btx.prog.one.measurement.unit;
 
 public interface Unit {
 

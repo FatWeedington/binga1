@@ -1,13 +1,13 @@
-package btx.prog.one.measurement;
+package btx.prog.one.measurement.unit;
 
 import btx.prog.one.rationalnumber.RationalNumber;
 
-import java.util.Locale;
 import java.util.Objects;
 
 public class DerivedUnit implements Unit{
 
     public static final DerivedUnit MILLIMETER = new DerivedUnit(BasicUnit.METER,Prefix.MILLI);
+    public static final DerivedUnit KILOMETER = new DerivedUnit(BasicUnit.METER,Prefix.KILO);
     public static final DerivedUnit MILLILITER = new DerivedUnit(BasicUnit.LITER,Prefix.MILLI);
     public static final DerivedUnit HEKTOPASCAL = new DerivedUnit(BasicUnit.PASCAL,Prefix.HEKTO);
     public static final DerivedUnit KILOGRAMM = new DerivedUnit(BasicUnit.GRAMM,Prefix.KILO);

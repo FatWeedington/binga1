@@ -1,8 +1,8 @@
 package measurement;
 
-import btx.prog.one.measurement.BasicUnit;
-import btx.prog.one.measurement.DerivedUnit;
-import btx.prog.one.measurement.Unit;
+import btx.prog.one.measurement.unit.BasicUnit;
+import btx.prog.one.measurement.unit.DerivedUnit;
+import btx.prog.one.measurement.unit.Unit;
 import btx.prog.one.rationalnumber.RationalNumber;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,4 +1,4 @@
-package btx.prog.one.measurement;
+package btx.prog.one.measurement.unit;
 
 import java.util.Objects;
 
@@ -8,6 +8,9 @@ public class BasicUnit implements Unit{
     public static final BasicUnit LITER = new BasicUnit("liter","l", Type.VOLUME);
     public static final BasicUnit PASCAL = new BasicUnit("pascal","Pa", Type.PRESSURE);
     public static final BasicUnit GRAMM = new BasicUnit("gramm","G", Type.MASS);
+    public static final BasicUnit MILE = new BasicUnit("mile","mil", Type.MASS);
+    public static final BasicUnit CELSIUS = new BasicUnit("Celsius","C", Type.MASS);
+    public static final BasicUnit FARENHEIT = new BasicUnit("Farenheit","F", Type.MASS);
 
 
     private String name;
